@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ingreso - Solution IPS</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!--‑‑‑ Encabezado institucional ‑‑‑-->
+  <header class="header">
+    <img src="../logos/simbolo solo.png" alt="Logo de Solution IPS"
+         class="logo" width="200" height="100" />
+    <h1>Ingreso</h1>
+  </header>
+
+  <!--‑‑‑ Contenedor principal ‑‑‑-->
+  <main class="container">
+    <!-- Logotipo de marca -->
+    <section class="branding">
+      <img src="../logos/nuevo logo.jpg"
+           alt="Logo institucional de Solution IPS"
+           class="branding-logo" />
+    </section>
+
+    <!--‑‑‑ Caja de login ‑‑‑-->
+    <section class="login-box">
+      <h2>
+        <img src="../logos/020.JPG" alt="Candado" width="28" style="vertical-align:middle">
+        &nbsp;Iniciar Sesión
+      </h2>
+
+      <form id="loginForm" class="login-form" autocomplete="on">
+        <div class="form-group">
+          <label for="usuario">Usuario</label>
+          <input type="text" id="usuario"
+                 placeholder="Ingrese su usuario"
+                 autocomplete="username" required />
+        </div>
+
+        <div class="form-group">
+          <label for="contrasena">Contraseña</label>
+          <input type="password" id="contrasena"
+                 placeholder="Ingrese su contraseña"
+                 autocomplete="current-password" required />
+        </div>
+
+        <div class="form-links">
+          <a href="#">¿Olvidó su contraseña?</a>
+        </div>
+
+        <button type="submit" class="login-button">Ingresar</button>
+      </form>
+
+      <div class="register-box">
+        <p>¿No tienes una cuenta?</p>
+        <a href="registro.html" class="register-button">Registrarse</a>
+      </div>
+    </section>
+  </main>
+
+  <!--‑‑‑ JavaScript embebido para validar y redirigir según rol ‑‑‑-->
+  <script>
+    /* Mapa de usuarios: username ⇒ { pass, ruta }  (solo DEMO) */
+    const usuarios = {
+      recepcion:     { pass: '1234',      ruta: '/Proyecto/login/RecepcionEmpleado.html' },
+      medico:        { pass: 'med2024',   ruta: '/Proyecto/login/RecepcionMedico.html' },
+      optometra:     { pass: 'opto2024',  ruta: '/Proyecto/login/RecepcionMedico.html' },
+      certificador:  { pass: 'cert2024',  ruta: '/Proyecto/login/RecepcionMedico.html' },
+      administrador: { pass: 'admin2024', ruta: '/Proyecto/login/RecepcionMedico.html' },
+      usuario:       { pass: 'user2024',  ruta: '/Proyecto/login/RecepcionPaciente.html' }
+    };
+
+    /* Captura el submit del formulario */
+    document.getElementById('loginForm').addEventListener('submit', e => {
+      e.preventDefault();                        // evita recarga
+      const user = document.getElementById('usuario').value.trim().toLowerCase();
+      const pass = document.getElementById('contrasena').value;
+
+      if (usuarios[user] && usuarios[user].pass === pass) {
+        /* Credenciales correctas → redirigir a la página del rol */
+        window.location.href = usuarios[user].ruta;
+      } else {
+        alert('Usuario o contraseña incorrectos');
+        document.getElementById('contrasena').value = '';
+      }
+    });
+  </script>
+</body>
+</html>

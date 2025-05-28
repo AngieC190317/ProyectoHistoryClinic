@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datos Paciente - Solution IPS</title>
+  <link rel="stylesheet" href="certificado.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+  <div class="header">
+    <img src="../logos/simbolo solo.png" width="400px" height="200px" alt="logo definitivo.png" class="logo" />
+    <h1>Módulo Clínico Certificaciones</h1>
+  </div>
+
+  <div class="container">
+    <h2>CERTIFICADO DE APTITUD OCUPACIONAL</h2>
+  </div>
+
+  <!-- Sección Datos del Paciente -->
+  <section class="seccion">
+    <h2><i class="bi bi-folder-fill"></i> Datos del Paciente</h2>
+    <div class="datos-paciente">
+      <div class="campo">
+        <label for="tipo-doc"><i class="bi bi-card-list"></i> Tipo de Documento</label>
+        <select id="tipo-doc">
+          <option value="">Seleccione</option>
+          <option value="CC">Cédula de ciudadanía</option>
+          <option value="TI">Tarjeta de identidad</option>
+          <option value="CE">Cédula de extranjería</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="numero-doc"><i class="bi bi-card-list"></i> Número de Documento</label>
+        <input type="text" id="numero-doc" placeholder="Ingrese el número" />
+      </div>
+      <div class="campo">
+        <label for="nombres"><i class="bi bi-card-list"></i> Nombres y Apellidos</label>
+        <input type="text" id="nombres" placeholder="Ingrese nombres y apellidos" />
+      </div>
+      <div class="foto">
+        <img src="https://via.placeholder.com/100x120?text=Foto" alt="Foto Paciente">
+      </div>
+    </div>
+  </section>
+
+  <!-- Valoraciones, Concepto, Recomendaciones -->
+  <section class="seccion fila-horizontal">
+    <!-- Valoraciones Clínicas -->
+    <div class="columna">
+      <h2><i class="bi bi-folder-fill"></i> Valoraciones Clínicas</h2>
+      <div class="valoraciones">
+        <button>Optometría</button>
+        <button>Fonoaudiología</button>
+        <button>Psicología</button>
+        <button>Laboratorio</button>
+        <button>Medicina</button>
+      </div>
+    </div>
+
+    <!-- Concepto -->
+    <div class="columna">
+      <h2><i class="bi bi-folder-fill"></i> Concepto</h2>
+      <div class="grupo-select">
+        <select><option>Aprobado</option><option>No Aprobado</option><option>Condicionado</option></select>
+        <select><option>Aprobado</option><option>No Aprobado</option><option>Condicionado</option></select>
+        <select><option>Aprobado</option><option>No Aprobado</option><option>Condicionado</option></select>
+        <select><option>Aprobado</option><option>No Aprobado</option><option>Condicionado</option></select>
+        <select><option>Aprobado</option><option>No Aprobado</option><option>Condicionado</option></select>
+      </div>
+    </div>
+
+    <!-- Recomendaciones -->
+    <div class="columna">
+      <h2><i class="bi bi-folder-fill"></i> Recomendaciones</h2>
+      <div class="grupo-select">
+        <select><option>Utiliza equipo de protección personal</option><option>No aplica</option><option>Reevaluación periódica</option></select>
+        <select><option>Utiliza equipo de protección personal</option><option>No aplica</option><option>Reevaluación periódica</option></select>
+        <select><option>Utiliza equipo de protección personal</option><option>No aplica</option><option>Reevaluación periódica</option></select>
+        <select><option>Utiliza equipo de protección personal</option><option>No aplica</option><option>Reevaluación periódica</option></select>
+        <select><option>Utiliza equipo de protección personal</option><option>No aplica</option><option>Reevaluación periódica</option></select>
+      </div>
+    </div>
+  </section>
+
+  <!-- Firmas -->
+  <section class="firmas">
+    <div class="bloque-firma">
+      <div class="firma-caja"></div>
+      <p>Firma y huella paciente</p>
+      <input type="text" placeholder="Nombre completo"/>
+      <input type="text" placeholder="Documento"/>
+    </div>
+    <div class="bloque-firma">
+      <div class="firma-caja"></div>
+      <p>Firma y sello profesional de la salud</p>
+      <input type="text" placeholder="Nombre del profesional"/>
+      <input type="text" placeholder="Registro médico"/>
+    </div>
+  </section>
+</body>
+</html>

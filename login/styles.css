@@ -1,0 +1,535 @@
+body {
+ font-family: initial;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+
+h1 { 
+  font-size: 500%;
+  }
+
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-image: url("../logos/segundo banner.jpg ");
+  background-size: 100% 110%
+  }
+
+.header .logo {
+  width: 200px;
+  margin-right: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 160px;
+  /*background-image: url("../logos/nuevo\ logo.JPG ");
+  background-size: max-width: auto; height: 50;*/ 
+}
+
+.branding {
+  text-align: center;
+ 
+}
+
+.branding-logo {
+  width: 600px;
+  
+}
+
+.login-box {
+  background-color: #e6e8eb;
+  padding: 40px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.login-box h3 {
+  border-bottom: 1px solid #000;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.login-box label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #d4d6d9;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 15px;
+  gap: 10px;
+}
+
+
+.nav-buttons {
+  display: flex;           /* Para que los botones estén uno al lado del otro */
+  gap: 1rem;               /* Espacio entre los botones */
+  align-items: center;     /* Centrar verticalmente */
+}
+
+.nav-button {
+  display: flex;           /* Para alinear icono y texto en línea */
+  align-items: center;     /* Centrar verticalmente icono y texto */
+  gap: 0.5rem;             /* Espacio entre icono y texto */
+  padding: 0.5rem 1rem;
+  background-color: #1a73e8; /* Color azul base */
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-area {
+  display: flex;
+  gap: 5px;
+  margin-left: auto;
+}
+
+.search-area select,
+.search-area input {
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.search-button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 30px;
+  justify-content: space-around;
+}
+
+.card {
+  background-color: #e6e8eb;
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1 1 300px;
+  max-width: 500px;
+}
+
+.card h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 0;
+}
+
+.card form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.card input,
+.card select,
+.card textarea {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 4px;
+  background-color: white;
+}
+
+textarea {
+  height: 150px;
+  resize: none;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo i {
+  color: #00008b;
+  font-size: 1.8rem;
+}
+
+.logout-btn {
+  background-color: #1a3cff;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+
+.branding h1 {
+  font-size: 3rem;
+  color: #00008b;
+  text-align: center;
+}
+
+.branding .logo-part {
+  font-weight: bold;
+}
+
+.branding .stethoscope-icon i {
+  font-size: 2rem;
+  vertical-align: middle;
+}
+
+.branding .ips {
+  font-size: 2rem;
+  display: block;
+  text-align: center;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(150px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.2rem;
+  background-color: #f9f9ff;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.menu-item:hover {
+  transform: scale(1.05);
+}
+
+.menu-item i {
+  
+  color: white;
+  padding: 0.6rem;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+
+/* Botón de cerrar sesión a la derecha */
+.logout-button {
+  background-color: #0047ff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 30px 20px;
+  gap: 20px;
+}
+
+.form-section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 300px;
+  width: 100%;
+}
+
+.form-section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.icono {
+  background-color: #0047ff;
+  color: white;
+  border-radius: 8px;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.form-box {
+  background-color: #e9ecef;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-box input,
+.form-box select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+.form-section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+
+
+/* ——— styles.css (factyra) ——— */
+/* estilos solo para factura */
+
+.factura-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+}
+.factura-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.factura-header div {
+  max-width: 60%;
+  line-height: 1.4;
+}
+.factura-header img {
+  max-height: 80px;
+  object-fit: contain;
+}
+.fila-doc {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.fila-doc .campo {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+}
+.campo.usuario {
+  margin-bottom: 30px;
+}
+.campo label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+select, input[type="text"], input[type="number"] {
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+  font-size: 1em;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+  background: #fff;
+}
+thead {
+  background: #005f73;
+  color: #fff;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px 10px;
+  text-align: center;
+}
+td input, td select {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+button#btnAgregar {
+  background-color: #0a9396;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-bottom: 25px;
+}
+button#btnAgregar:hover {
+  background-color: #007f83;
+}
+.totales {
+  max-width: 400px;
+  margin-left: auto;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+.totales div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+
+
+/* Estilos para el cuerpo del certificado */
+
+.certificado {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  font-family: Arial, sans-serif;
+  color: #000;
+}
+
+.certificado h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.certificado .seccion {
+  margin-bottom: 30px;
+}
+
+.certificado .seccion h2 {
+  font-size: 1.2em;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.certificado .datos-paciente {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.certificado .campo {
+  flex: 1;
+  min-width: 250px;
+}
+
+.certificado .campo label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.certificado .campo input,
+.certificado .campo select {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.certificado .foto img {
+  width: 100px;
+  height: 120px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+}
+
+.certificado .valoraciones button {
+  display: block;
+  margin: 5px 0;
+  background-color: #0044ff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.certificado .valoraciones button:hover {
+  background-color: #0033cc;
+}
+
+.certificado .horizontal {
+  display: flex;
+  gap: 40px;
+}
+
+.certificado .horizontal select {
+  display: block;
+  margin-bottom: 10px;
+  padding: 6px;
+  width: 100%;
+}
+
+.certificado .firmas {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  gap: 40px;
+}
+
+.certificado .firmas div {
+  flex: 1;
+  text-align: center;
+}
+
+.certificado .firma-caja {
+  width: 100%;
+  height: 80px;
+  border-bottom: 2px solid #333;
+  margin-bottom: 10px;
+}

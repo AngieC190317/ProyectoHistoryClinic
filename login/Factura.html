@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facturación - Solution IPS</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Solo estilos específicos para factura */
+    .factura-container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+    }
+
+    .factura-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+    .factura-header div {
+      max-width: 60%;
+      line-height: 1.4;
+    }
+    .factura-header img {
+      max-height: 80px;
+      object-fit: contain;
+    }
+    .fila-doc {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .fila-doc .campo {
+      flex: 1 1 200px;
+      display: flex;
+      flex-direction: column;
+    }
+    .campo.usuario {
+      margin-bottom: 30px;
+    }
+    .campo label {
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    select, input[type="text"], input[type="number"] {
+      padding: 6px 8px;
+      border-radius: 4px;
+      border: 1px solid #aaa;
+      font-size: 1em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 15px;
+      background: #fff;
+    }
+    thead {
+      background: #005f73;
+      color: #fff;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px 10px;
+      text-align: center;
+    }
+    td input, td select {
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 1em;
+    }
+    button#btnAgregar {
+      background-color: #0a9396;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      margin-bottom: 25px;
+    }
+    button#btnAgregar:hover {
+      background-color: #007f83;
+    }
+    .totales {
+      max-width: 400px;
+      margin-left: auto;
+      font-size: 1.1em;
+      font-weight: 600;
+    }
+    .totales div {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Encabezado suministrado -->
+  <div class="header">
+    <img src="../logos/simbolo solo.png" width="400" height="200" alt="logo definitivo" class="logo" />
+    <h1>factura</h1>
+  </div>
+
+  <!-- ===== FACTURA (contenedor independiente) ===== -->
+  <div class="factura-container">
+    <!-- ENCABEZADO DE LA FACTURA -->
+    <header class="factura-header">
+      <div>
+        <h2>Solution IPS</h2>
+        <p>NIT 000.000.000‑0<br>
+          Calle 123 #45‑67, Bogotá<br>
+          Tel +57 1 123 4567<br>
+          contacto@empresa.com
+        </p>
+      </div>
+      <img src="../logos/logo definitivo.png" alt="Logo empresa" />
+    </header>
+
+    <!-- Datos documento -->
+    <div class="fila-doc">
+      <div class="campo">
+        <label for="tipoDocumento">Tipo de documento:</label>
+        <select id="tipoDocumento" required>
+          <option value="">Seleccione</option>
+          <option value="CC">Cédula</option>
+          <option value="NIT">NIT</option>
+          <option value="CE">C.E.</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="numeroDocumento">Número:</label>
+        <input type="text" id="numeroDocumento" required />
+      </div>
+      <div class="campo">
+        <label for="numeroFactura">Número de factura:</label>
+        <input type="text" id="numeroFactura" required />
+      </div>
+    </div>
+
+    <div class="campo usuario">
+      <label for="nombreUsuario">Nombre usuario:</label>
+      <input type="text" id="nombreUsuario" placeholder="Ingrese nombre" required />
+    </div>
+
+    <!-- Tabla productos -->
+    <table id="tablaProductos">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cant.</th>
+          <th>Valor Unit.</th>
+          <th>IVA (%)</th>
+          <th>Subtotal</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody id="productosBody"></tbody>
+    </table>
+    <button type="button" id="btnAgregar">+ Agregar producto</button>
+
+    <!-- Totales -->
+    <div class="totales">
+      <div><span>Subtotal:</span><span id="subtotal">$0</span></div>
+      <div><span>IVA:</span><span id="totalIva">$0</span></div>
+      <div><strong>Total a pagar:</strong><strong id="totalPagar">$0</strong></div>
+    </div>
+  </div>
+
+  <!-- ===== JavaScript embebido ===== -->
+  <script>
+    const productos = [
+      { codigo: 'PRD001', descripcion: 'Examen Ocupacional', valorUnitario: 145000 },
+      { codigo: 'PRD002', descripcion: 'Examen Médico', valorUnitario: 45000 },
+      { codigo: 'PRD003', descripcion: 'Examen Psicologico', valorUnitario: 40000 },
+      { codigo: 'PRD004', descripcion: 'Examen Optometria', valorUnitario: 40000 },
+      { codigo: 'PRD003', descripcion: 'Examen Fonoaudiologia', valorUnitario: 40000 }
+    ];
+
+    const body = document.getElementById('productosBody');
+    const btnAdd = document.getElementById('btnAgregar');
+    const lblSub = document.getElementById('subtotal');
+    const lblIva = document.getElementById('totalIva');
+    const lblTotal = document.getElementById('totalPagar');
+
+    const money = n => '$' + n.toLocaleString('es-CO'); // “$12.345” ó “$1.234.567”;
+
+    function fila() {
+      const tr = document.createElement('tr');
+      const options = productos.map(p => `<option value="${p.codigo}">${p.descripcion}</option>`).join('');
+      tr.innerHTML = `
+        <td>
+          <select class="prod" required>
+            <option value="">Seleccione producto</option>
+            ${options}
+          </select>
+        </td>
+        <td><input type="number" class="cant" value="1" min="1"></td>
+        <td><input type="number" class="val" value="0" min="0"></td>
+        <td><input type="number" class="iva" value="19" min="0" max="100"></td>
+        <td class="sub">$0</td>
+        <td><button type="button" class="del">Eliminar</button></td>
+      `;
+
+      const selectProd = tr.querySelector('.prod');
+      const inputVal = tr.querySelector('.val');
+      const inputs = tr.querySelectorAll('input');
+
+      // Cuando cambia producto, actualizar valor unitario
+      selectProd.addEventListener('change', e => {
+        const codigo = e.target.value;
+        const prod = productos.find(p => p.codigo === codigo);
+        if (prod) {
+          inputVal.value = prod.valorUnitario;
+        } else {
+          inputVal.value = 0;
+        }
+        calc();
+      });
+
+      // Recalcular cuando cambian inputs cantidad, valor o iva
+      inputs.forEach(i => i.addEventListener('input', calc));
+
+      // Botón eliminar
+      tr.querySelector('.del').addEventListener('click', () => {
+        tr.remove();
+        calc();
+      });
+
+      return tr;
+    }
+
+    function add() {
+      body.appendChild(fila());
+      calc();
+    }
+
+    function calc() {
+      let sub = 0, ivaT = 0;
+      body.querySelectorAll('tr').forEach(r => {
+        const c = +r.querySelector('.cant').value || 0;
+        const v = +r.querySelector('.val').value || 0;
+        const p = +r.querySelector('.iva').value || 0;
+        const s = c * v;
+        sub += s;
+        ivaT += s * p / 100;
+        r.querySelector('.sub').textContent = money(s);
+      });
+      lblSub.textContent = money(sub);
+      lblIva.textContent = money(ivaT);
+      lblTotal.textContent = money(sub + ivaT);
+    }
+
+    btnAdd.addEventListener('click', add);
+
+    // Agregar fila inicial
+    add();
+  </script>
+</body>
+</html>
+

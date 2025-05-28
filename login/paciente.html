@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datos Paciente - Solution IPS</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="header">
+    <img src="../logos/simbolo solo.png" width="400px"  height="200px"  alt="logo definitivo.png" class="logo" />
+    <h1>Módulo Clínico Médicina</h1>
+    
+ </div>
+<nav class="nav-bar">
+  <div class="nav-buttons">
+    <button class="nav-button active">
+       <img src="../logos/003.JPG" alt="logo Datos Paciente" class="logo" width="24px" />
+       <span>Datos Paciente</span>
+    </button>
+
+    <button class="nav-button active">
+      <img src="../logos/001.JPG" alt="Historia Clínica" class="logo" width="24px" />
+      <span>Historia Clínica</span>
+    </button>
+  </div>
+
+
+  <div class="search-area">
+    <label for="tipoDocumento">Tipo de documento:</label>
+    <select id="tipoDocumento" name="tipoDocumento" required>
+      <option value="">Seleccione...</option>
+      <option value="CC">Cédula de Ciudadanía</option>
+      <option value="TI">Tarjeta de Identidad</option>
+      <option value="CE">Cédula de Extranjería</option>
+      <option value="RC">Registro Civil</option>
+      <option value="PA">Pasaporte</option>
+      <option value="NIT">NIT</option>
+      <option value="NUIP">NUIP</option>
+      <option value="PEP">PEP</option>
+    </select>
+
+    <input type="text" placeholder="Número de documento" class="search-input" />
+
+    <button class="search-button">
+      <img src="../logos/007.JPG" alt="Buscar" class="logo" width="24px" />
+    </button>
+  </div>
+</nav>
+
+
+  <main class="main-content">
+    <section class="card">
+      <h2><span><img src="../logos/004.JPG" alt="logo definitivo.png" class="logo" width="40px"/> </span> Datos Personales</h2>
+      <form>
+        <label>Nombres: <input type="text" value="" /></label>
+        <label>Apellidos: <input type="text" value="" /></label>
+        <label>Fecha de Nacimiento: <input type="date" value="" /></label>
+
+        
+        <label>Edad: <input type="text" value=" " /></label>
+       <label>País de nacimiento: 
+    <select name="paisNacimiento" id="paisNacimiento" required>
+      <option value="">Seleccione un país</option>
+      <option value="Colombia">Colombia</option>
+      <option value="Argentina">Argentina</option>
+      <option value="Bolivia">Bolivia</option>
+      <option value="Brasil">Brasil</option>
+      <option value="Chile">Chile</option>
+      <option value="Costa Rica">Costa Rica</option>
+      <option value="Cuba">Cuba</option>
+      <option value="Ecuador">Ecuador</option>
+      <option value="El Salvador">El Salvador</option>
+      <option value="España">España</option>
+      <option value="Estados Unidos">Estados Unidos</option>
+      <option value="Guatemala">Guatemala</option>
+      <option value="Honduras">Honduras</option>
+      <option value="México">México</option>
+      <option value="Nicaragua">Nicaragua</option>
+      <option value="Panamá">Panamá</option>
+      <option value="Paraguay">Paraguay</option>
+      <option value="Perú">Perú</option>
+      <option value="República Dominicana">República Dominicana</option>
+      <option value="Uruguay">Uruguay</option>
+      <option value="Venezuela">Venezuela</option>
+    </select>
+    </label>
+        <label>Lugar de Nacimiento: 
+  <select name="lugarNacimiento" id="lugarNacimiento" required>
+    <option value="">Seleccione una ciudad</option>
+    <option value="Leticia">Leticia (Amazonas)</option>
+    <option value="Medellín">Medellín (Antioquia)</option>
+    <option value="Arauca">Arauca (Arauca)</option>
+    <option value="Barranquilla">Barranquilla (Atlántico)</option>
+    <option value="Bogotá">Bogotá D.C.</option>
+    <option value="Cartagena">Cartagena (Bolívar)</option>
+    <option value="Tunja">Tunja (Boyacá)</option>
+    <option value="Manizales">Manizales (Caldas)</option>
+    <option value="Florencia">Florencia (Caquetá)</option>
+    <option value="Yopal">Yopal (Casanare)</option>
+    <option value="Popayán">Popayán (Cauca)</option>
+    <option value="Valledupar">Valledupar (Cesar)</option>
+    <option value="Quibdó">Quibdó (Chocó)</option>
+    <option value="Montería">Montería (Córdoba)</option>
+    <option value="Inírida">Inírida (Guainía)</option>
+    <option value="San José del Guaviare">San José del Guaviare (Guaviare)</option>
+    <option value="Neiva">Neiva (Huila)</option>
+    <option value="Riohacha">Riohacha (La Guajira)</option>
+    <option value="Santa Marta">Santa Marta (Magdalena)</option>
+    <option value="Villavicencio">Villavicencio (Meta)</option>
+    <option value="Pasto">Pasto (Nariño)</option>
+    <option value="San Andrés">San Andrés (San Andrés y Providencia)</option>
+    <option value="Cúcuta">Cúcuta (Norte de Santander)</option>
+    <option value="Mocoa">Mocoa (Putumayo)</option>
+    <option value="Armenia">Armenia (Quindío)</option>
+    <option value="Pereira">Pereira (Risaralda)</option>
+    <option value="Bucaramanga">Bucaramanga (Santander)</option>
+    <option value="Sincelejo">Sincelejo (Sucre)</option>
+    <option value="Ibagué">Ibagué (Tolima)</option>
+    <option value="Cali">Cali (Valle del Cauca)</option>
+    <option value="Mitú">Mitú (Vaupés)</option>
+    <option value="Puerto Carreño">Puerto Carreño (Vichada)</option>
+  </select>
+  </label>
+        <label>Género:
+        <select name="genero" id="genero" required>
+        <option value="">Seleccione</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Femenino">Femenino</option>
+        <option value="Otro">Otro</option>
+        <option value="Prefiero no decirlo">Prefiero no decirlo</option>
+        </select>
+  </label>
+                
+        <label>Dirección: <input type="text" value=" " /></label>
+        <label>Teléfono: <input type="text" value=" " /></label>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2><span><img src="../logos/002.jpg" alt="logo definitivo.png" class="logo" width="40px"/> </span> Datos ocupacionales</h2>
+      <form>
+        <label>Empresa: <input type="text" value=" " /></label>
+        <label>Cargo: <input type="text" value=" " /></label>
+        <label>Fecha de Ingreso: <input type="date" value=" " /></label>
+        <label>Tiempo en Cargo: <input type="text" value=" " /></label>
+        <label>ARL: 
+  <select name="arl" id="arl" required>
+    <option value="">Seleccione una ARL</option>
+    <option value="ARL SURA">ARL SURA</option>
+    <option value="ARL Positiva">ARL Positiva</option>
+    <option value="ARL Colmena">ARL Colmena</option>
+    <option value="ARL Bolivar">ARL Bolívar</option>
+    <option value="ARL Liberty">ARL Liberty</option>
+    <option value="ARL AXA Colpatria">ARL AXA Colpatria</option>
+    <option value="ARL Allianz">ARL Allianz</option>
+    <option value="ARL ARL Bogotá">ARL Bogotá</option>
+  </select>
+</label>
+
+       <label>EPS: 
+  <select name="eps" id="eps" required>
+    <option value="">Seleccione una EPS</option>
+    <option value="Sanitas">Sanitas</option>
+    <option value="Sura">Sura</option>
+    <option value="Compensar">Compensar</option>
+    <option value="Coomeva">Coomeva</option>
+    <option value="Nueva EPS">Nueva EPS</option>
+    <option value="Famisanar">Famisanar</option>
+    <option value="Salud Total">Salud Total</option>
+    <option value="Cafesalud">Cafesalud</option>
+    <option value="Medimas">Medimas</option>
+    <option value="Colsanitas">Colsanitas</option>
+    <option value="Sanidad">Sanidad</option>
+  </select>
+</label>
+
+       <label>AFP: 
+  <select name="afp" id="afp" required>
+    <option value="">Seleccione una AFP</option>
+    <option value="Colfondos">Colfondos</option>
+    <option value="Porvenir">Porvenir</option>
+    <option value="Protección">Protección</option>
+    <option value="Skandia">Skandia</option>
+    <option value="Old Mutual">Old Mutual</option>
+    <option value="Old Mutual">Old Mutual</option>
+    <option value="Cafap">Cafap</option>
+    <option value="Multiactiva">Multiactiva</option>
+  </select>
+</label>
+
+        <label>Correo: 
+  <input type="email" name="correo" placeholder="ejemplo@correo.com" required />
+</label>
+        <label>Teléfono laboral: <input type="text" value=" " /></label>
+      </form>
+    </section>
+
+    <section class="card observations">
+      <h2><span><img src="../logos/003.JPG" alt="logo definitivo.png" class="logo" width="40px"/> </span> Observaciones</h2>
+      <textarea></textarea>
+    </section>
+  </main>
+  
+  
+
+
+
+</body>
+</html>
