@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Citas Médicas</title>
+    <link rel="stylesheet" href="citasMedicas.css" />
+  </head>
+  <body>
+    <header class="header">
+      <img src="/logos/simbolo solo.png" alt="Logo" class="logo-header" />
+      <h1>Citas médicas</h1>
+    </header>
+
+    <div class="container-cita">
+      <div class="imagen-lateral">
+        <img src="/logos/logo azul.png" alt="Imagen médica" />
+      </div>
+
+      <div class="formulario-cita card">
+        <h2>
+          <img src="/logos/logo cita.png" width="50" /> Agendar Cita Médica
+        </h2>
+        <form id="form-cita">
+          <input type="text" id="documento" placeholder="Documento" required />
+          <input
+            type="text"
+            id="nombre"
+            placeholder="Nombre completo"
+            required
+          />
+          <input type="tel" id="telefono" placeholder="Teléfono" required />
+          <select id="consulta" required>
+            <option value="">Tipo de consulta</option>
+            <option value="optometria">Optometría</option>
+            <option value="examen">Examen completo</option>
+            <option value="laboratorio">Laboratorio</option>
+            <option value="psicologia">Psicología</option>
+          </select>
+          <input type="date" id="fecha" required />
+          <input type="time" id="hora" required />
+
+          <!-- Contenedor botones -->
+          <div class="botones">
+            <button type="submit" id="btn-reservar">Reservar Cita</button>
+
+            <!-- Botón lupa -->
+            <button type="button" id="btn-lupa" title="Buscar Cita">🔍</button>
+          </div>
+        </form>
+
+        <div id="resultado-consulta"></div>
+      </div>
+    </div>
+
+    <div id="alerta" class="alerta-oculta">Cita registrada exitosamente</div>
+
+    <!-- Modal para buscar documento -->
+    <div id="modal-busqueda" class="modal oculto">
+      <div class="modal-contenido">
+        <span id="cerrar-busqueda" class="cerrar">&times;</span>
+        <h3>Buscar cita médica</h3>
+        <input
+          type="text"
+          id="buscar-doc-modal"
+          placeholder="Documento de identidad"
+        />
+        <button type="button" id="btn-buscar-modal">Buscar</button>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal-citas" class="modal oculto">
+      <div class="modal-contenido">
+        <span id="cerrar-modal" class="cerrar">&times;</span>
+        <h3>Citas reservadas</h3>
+        <div id="contenido-modal"></div>
+      </div>
+    </div>
+
+    <script src="/citasMedicas/scripts.js"></script>
+  </body>
+</html>
